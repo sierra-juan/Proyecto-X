@@ -1,0 +1,41 @@
+Contexto:
+Estoy creando una aplicación web que sirve como asistente personal para usuarios. 
+Tiene dos canales de interacción:
+1. Telegram Chatbot
+2. Dashboard web moderno accesible desde la URL pública de Replit.
+
+El backend está alojado en Replit, usando Python + FastAPI, y debe estar 24/7 activo. 
+El frontend será React + Next.js, separado de la lógica, y debe comunicarse con el backend vía API. 
+Se planea escalar a múltiples usuarios, asegurando que cada usuario vea y modifique únicamente su propia información.
+
+Requerimientos del prompt:
+- Montar un backend en Python usando FastAPI con rutas para Telegram webhook y API del Dashboard.
+- Configurar una base de datos (SQLite inicialmente, separando usuarios por `user_id`).
+- Crear estructuras de datos:
+    - Usuarios (id, telegram_id, nombre, email)
+    - Recordatorios (id, user_id, texto, hora, completado)
+    - Actividades (id, user_id, tipo, fecha)
+    - Historial de IA (id, user_id, prompt, respuesta, timestamp)
+- Configurar webhook de Telegram con el bot token.
+- Backend debe filtrar toda la información por `user_id`.
+- Preparar endpoints API para frontend:
+    - `/api/reminders`
+    - `/api/agenda`
+    - `/api/summary`
+- Crear un frontend React + Next.js:
+    - Páginas: Home, Dashboard, Agenda, Configuración
+    - Components: ui (botones, tabs, cards, modals, inputs), layout (navbar, sidebar, footer)
+    - Styles: theme.css y globals.css
+    - Servicios: api.js para llamadas a backend
+- Preparar el sistema para que IA/diseñador pueda modificar únicamente UI/UX:
+    - Carpeta `components/ui/`
+    - Carpeta `styles/`
+- Preparar el proyecto para producción en Replit con URL pública activa.
+- Documentar README con instrucciones de instalación, ejecución, endpoints y arquitectura.
+
+Instrucciones de entrega:
+1. Crear estructura de carpetas y archivos según las especificaciones.
+2. Backend funcional con FastAPI, endpoints y filtrado por `user_id`.
+3. Frontend mínimo funcional con páginas y componentes de ejemplo.
+4. Documentación clara de cómo ejecutar el proyecto y cómo integrar Telegram.
+5. Entregar todo en un repositorio de Replit listo para pruebas.
